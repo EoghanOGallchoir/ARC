@@ -44,7 +44,7 @@ def solve_4258a5f9(x):
 def solve_46442a0e(x):
     '''
     Task Description:
-    This function takes the entire grid as an input and rotates it around 3 times, if that makes sense.
+    This takes the entire grid as an input and rotates it around 3 times, if that makes sense.
     So a 2x2 grid of: 0 1 becomes a 4x4 grid of: 0 1 1 0
                       1 0                        1 0 0 1
                                                  1 0 0 1
@@ -59,18 +59,112 @@ def solve_46442a0e(x):
     
                                                             
     '''
-    print("solving provlem 2")
+    print("solving problem 2")
     # using list comprehension to revere grids x, x1, x2 using reveresed() python function
     x1 = [list(reversed(colour)) for colour in zip(*x)]
     x2 = [list(reversed(colour)) for colour in zip(*x1)]
     x3 = [list(reversed(colour)) for colour in zip(*x2)]
+    # combining the the lists along the horizontal axis, two halves
     arr1 = np.concatenate((x, x1), axis=1)
     arr2 = np.concatenate((x3,x2),axis=1)
+    # combining both into one grid
     x = np.concatenate((arr1,arr2))
               
     return x
 
 
+
+def solve_508bd3b6(x):
+    '''
+    Task Description:
+    One must get the direction of the blue squares and trace its trajectory towards a red wall.
+    Green squares must then kind of trace that trajectory towards and away from that red wall.
+    
+    Function:
+    Function finds the direction of the blue squares and the location of the red wall.
+    The function must then put green squares towards and away from the red wall, bouncing off it.
+    To give the illusion of "bounce" the function mirrors where the green squares are.
+    '''
+    
+    blue = 8
+    red = 2
+    black = 0
+    green = 3
+
+    row_len = len(x)
+    col_len = x.shape[1]
+    
+    # get top and bottom starts
+    for row in range(row_len): 
+        if row == 0 or row == row_len-1:
+            for col in range(col_len):
+                if x[row][col] == blue:
+                    #print(f"blue found at: {row, col}.")
+                    if row == 0:
+                        if x[1][col+1] == blue:
+                            #print("Dir is South-East")
+                            x = paint_to("SE", x,row,col)
+                        elif x[1][col-1] == blue:
+                            #print("Dir is South-West")
+                            x = paint_to("SW", x,row,col)
+                    else:
+                        if x[row_len-2][col+1] == blue:
+                            #print("Dir is North-East")
+                            x = paint_to("NE", x,row,col)
+                        elif x[row_len-2][col-1] == blue:
+                            #print("Dir is North-West")
+                            x = paint_to("NW", x,row,col)
+    
+    # look for blues on left and right side                          
+    for col in range(col_len):
+        if col == 0 or col == col_len-1:
+            for row in range(row_len):
+                if x[row][col] == blue:
+                    if col == 0:
+                        if x[row+1][1] == blue:
+                            x = paint_to("SE", x, row, col)
+                        elif x[row-1][1] == blue:
+                            x = paint_to("NE",x,row,col)
+                    else:
+                        if x[row+1][col_len-1] == blue:
+                            x = paint_to("SW", x, row, col)
+                        elif x[row-1][col_len-1] == blue:
+                            x = paint_to("NW",x,row,col)
+                    
+                    
+    return x
+
+# paints diagonal squares green when given a direction
+def paint_to(dir, arr,r,c):
+    blue = 8
+    red = 2
+    black = 0
+    green = 3
+    i = 0
+    j = 0
+    
+    if dir == "SE":
+        i = 1
+        j = 1
+    if dir == "SW":
+        i = 1
+        j = -1
+    if dir == "NE":
+        i = -1
+        j = 1
+    if dir == "NW":
+        i = -1
+        j = -1
+        
+    # paints green if allowed
+    while arr[r+i][c+j] != red or arr[r+i][c+j] == black:
+        if arr[r+i][c+j] != blue:
+            arr[r+i][c+j] = green
+        r = r+i
+        c = c+j
+
+    return arr
+    
 
 '''
 
