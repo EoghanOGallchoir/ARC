@@ -13,33 +13,66 @@ import re
 
 def solve_4258a5f9(x):
     '''
+    Task description:
     Light blue squares must be surrounded by purple squares. (Unsure of exact colours, bit colour blind)
     so a grid of: 0 0 0 0 0 must become:  0 1 1 1 0
                   0 0 5 0 0               0 1 5 1 0
                   0 0 0 0 0               0 1 1 1 0
                   
-    
+    Function:
     Solve will work by identifying blue squares, which is 5 in the grid.
     Then, the function will put purple squares, 1, around the blue (5) square.
     '''
+    print("solving provlem 1")
     blue = 5
     purple = 1
+    
+    #iterating through each row+column to find blues
     for row in range(0, x.shape[0]):
         for col in range(0, x.shape[1]):
+            # changing the surrounding black squares to blue
             if x[row][col] == blue:
                 for change in range(-1,2):
                     x[row-1][col+change] = purple
                     x[row+1][col+change] = purple
+                    # easiest way i could think of keeping the blue square blue while changing left and right of it
                     if x[row][col+change] != blue:
-                        x[row][col+change] = purple
-                    
-                
+                        x[row][col+change] = purple           
     
     return x
 
-'''
-def solve_b2862040(x):
+def solve_46442a0e(x):
+    '''
+    Task Description:
+    This function takes the entire grid as an input and rotates it around 3 times, if that makes sense.
+    So a 2x2 grid of: 0 1 becomes a 4x4 grid of: 0 1 1 0
+                      1 0                        1 0 0 1
+                                                 1 0 0 1
+                                                 0 1 1 0
+    As you can see the original matrix in the top left gets rotated around.
+    
+    Function:
+    Get the grid, x, and rotate its orientation 90 deg to get x1.
+    get x1 and rotate that 90 deg to get x2, then x2 rotate to get x3.
+    Finally put all 4 grids together in the form: x  x1
+                                                  x3 x2
+    
+                                                            
+    '''
+    print("solving provlem 2")
+    # using list comprehension to revere grids x, x1, x2 using reveresed() python function
+    x1 = [list(reversed(colour)) for colour in zip(*x)]
+    x2 = [list(reversed(colour)) for colour in zip(*x1)]
+    x3 = [list(reversed(colour)) for colour in zip(*x2)]
+    arr1 = np.concatenate((x, x1), axis=1)
+    arr2 = np.concatenate((x3,x2),axis=1)
+    x = np.concatenate((arr1,arr2))
+              
     return x
+
+
+
+'''
 
 def solve_05269061(x):
     return x
