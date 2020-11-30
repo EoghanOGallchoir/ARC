@@ -10,15 +10,40 @@ import re
 ### result. Name them according to the task ID as in the three
 ### examples below. Delete the three examples. The tasks you choose
 ### must be in the data/training directory, not data/evaluation.
-def solve_6a1e5592(x):
+
+def solve_4258a5f9(x):
+    '''
+    Light blue squares must be surrounded by purple squares. (Unsure of exact colours, bit colour blind)
+    so a grid of: 0 0 0 0 0 must become:  0 1 1 1 0
+                  0 0 5 0 0               0 1 5 1 0
+                  0 0 0 0 0               0 1 1 1 0
+                  
+    
+    Solve will work by identifying blue squares, which is 5 in the grid.
+    Then, the function will put purple squares, 1, around the blue (5) square.
+    '''
+    blue = 5
+    purple = 1
+    for row in range(0, x.shape[0]):
+        for col in range(0, x.shape[1]):
+            if x[row][col] == blue:
+                for change in range(-1,2):
+                    x[row-1][col+change] = purple
+                    x[row+1][col+change] = purple
+                    if x[row][col+change] != blue:
+                        x[row][col+change] = purple
+                    
+                
+    
     return x
 
+'''
 def solve_b2862040(x):
     return x
 
 def solve_05269061(x):
     return x
-
+'''
 
 def main():
     # Find all the functions defined in this file whose names are
