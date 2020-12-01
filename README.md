@@ -11,7 +11,7 @@
 
 The first task consists of a grid containing a few blue (5) squares.
 The function must surround those squares with purple (1) squares.
-(https://github.com/EoghanOGallchoir/ARC/Images/blue-purple.PNG)
+![alt text](https://github.com/EoghanOGallchoir/ARC/Images/blue-purple.PNG)
 
 #### How my function works
 
