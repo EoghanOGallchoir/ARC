@@ -1,4 +1,68 @@
-# Just the first commit, no changes to show. Yet.
+## Tasks Chosen:
+**1.** solve_4258a5f9
+**2.** solve_46442a0e
+**3.** solve_608bd3b6 
+
+### 1.
+####Description
+The first task consists of a grid containing a few blue (5) squares.
+The function must surround those squares with purple (1) squares.
+So a grid of 0 0 0 0 0 must become:  0 1 1 1 0
+             0 0 5 0 0               0 1 5 1 0
+             0 0 0 0 0               0 1 1 1 0
+
+####How my function works
+We start by identifying the location of each blue square, aka 5, is in the grid. 
+This is done by iterating through row by row, column by column.
+Once a blue square is found, the function puts a purple, aka 1, in the surrounding 8 squares, while keeping the blue square blue.
+
+####Testing
+Training grids: 2/2
+Test grids: 1/1
+                  
+###2.
+####Description
+This task takes the entire grid as an input and rotates it around 3 times, completing a box shape. 
+This is a bit hard to describe but imaginee a 2x2 grid:0 1 becomes a 4x4 grid of: 0 1 2 0
+                        			       2 0                        2 0 0 1
+                                                        			  1 0 0 2
+                                                 				  0 2 1 0
+####How my function works
+We take the grid x, and rotate it 90 degrees left to get x1.
+We then take x1 and rotate it 90 degrees to get x2, and the same with x2 to get x3.
+Finally we combine all 4 grids together in the form: x  x1
+						     x3 x2
+####Testing
+Training grids: 3/3
+Test grids: 1/1
+
+###3.
+####Description
+This task takes the direction started by the blue squares (always diagonal) and continues it with green squares until it hits a red wall.
+Upon meeting the wall, the green line must then *"bounce"* off that wall and continue its trajectory until it hits the edge of the grid.
+
+####How my function works
+My function starts by finding blue squares along the edge squares of the grid.
+Once it finds one it looks for its blue neighbour, and from that it gets one of 4 directions it can go in (NW, SW, SE, NE).
+A helper funcion is then called to "paint" green squares from the blue squares to the red wall, stopping once it gets there.
+When we hit the wall, we inverse its direction and begin to paint again, until it hits any of the edges of the grid.
+
+####Testing
+Training grids: 2/3
+Test grids: 1/1
+
+
+###Short Comments
+For the most part, I used only basic python features to create my functions. Of course some numpy stuff was done as the grid was read in as a numpy array.
+I used the `len()` function to get the row number, but the `x.shape[1]` to get the columns of numpy array x. These were used acrosss all 3 functions, as all needed
+me to iterate through them row**x**column.
+The second function utilised more basic python function, `reversed()` and `zip()` to rotate the grid(s). The second function also used numpy concatenate to join the lists
+the way I wanted them to join. It was a very useful function for doing what I needed it to. The third function is similar to the first where there is basic python used to complete
+the task at hand. Loops are heavily featured here, a commonality with the other two functions to go through the every square in the grid.
+
+One differance that the third function has in comparison with the first two is that it uses other functions to solve its problem. These functions `paint_to()` and `paint_fro` were
+implemented to try and make the code look a little more elegant, on top of it making sense at the time. They take multiple arguments and again use nested (upon nested) loops to 
+execute what I want them to do.
 
 
 # The Abstraction and Reasoning Corpus (ARC)

@@ -5,11 +5,8 @@ import json
 import numpy as np
 import re
 
-### YOUR CODE HERE: write at least three functions which solve
-### specific tasks by transforming the input x and returning the
-### result. Name them according to the task ID as in the three
-### examples below. Delete the three examples. The tasks you choose
-### must be in the data/training directory, not data/evaluation.
+### github link:
+### https://github.com/EoghanOGallchoir/ARC
 
 def solve_4258a5f9(x):
     '''
@@ -23,7 +20,6 @@ def solve_4258a5f9(x):
     Solve will work by identifying blue squares, which is 5 in the grid.
     Then, the function will put purple squares, 1, around the blue (5) square.
     '''
-    print("solving provlem 1")
     blue = 5
     purple = 1
     
@@ -59,8 +55,7 @@ def solve_46442a0e(x):
     
                                                             
     '''
-    print("solving problem 2")
-    # using list comprehension to revere grids x, x1, x2 using reveresed() python function
+    # using list comprehension to revere grids x, x1, x2 using reversed() python function
     x1 = [list(reversed(colour)) for colour in zip(*x)]
     x2 = [list(reversed(colour)) for colour in zip(*x1)]
     x3 = [list(reversed(colour)) for colour in zip(*x2)]
@@ -85,11 +80,7 @@ def solve_508bd3b6(x):
     The function must then put green squares towards the red wall, using the blue squares to direct itself.
     Then the direction is reversed to give the bounce trajectory of the blue squares.
     '''
-    
     blue = 8
-    red = 2
-    black = 0
-    green = 3
 
     row_len = len(x)
     col_len = x.shape[1]
@@ -156,7 +147,7 @@ def paint_to(dir, arr,r,c):
     if dir == "NW":
         i = -1
         j = -1
-    print(dir) 
+
     # paints green if allowed
     if 0 <= r < len(arr):
         if 0 <= c < arr.shape[1]:
@@ -166,8 +157,8 @@ def paint_to(dir, arr,r,c):
                 
                 r = r+i
                 c = c+j
-                #print(r,c)
-        # similar function to paint_to, paints from the red wall until the edge of the grid     
+        # similar function to paint_to, paints from the red wall until the edge of the grid
+        # i.e the bounce back
         paint_fro(dir,arr,r,c)
 
     return arr
@@ -175,9 +166,6 @@ def paint_to(dir, arr,r,c):
 def paint_fro(dir, x_inp, row, col):
     i = 0
     j = 0
-    blue = 8
-    red = 2
-    black = 0
     green = 3
     if dir == "SE":
         dir = "SW"
@@ -199,13 +187,11 @@ def paint_fro(dir, x_inp, row, col):
         i = -1
         j = 1
 
-
     # paints green until the border
     while 0 <= row+i < len(x_inp) and 0 <= col+j < x_inp.shape[1]:
         x_inp[row+i][col+j] = green
         row = row + i
         col = col + j
-        print(f"changed:{row,col}.")
     
     
 
