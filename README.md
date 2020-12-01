@@ -16,7 +16,7 @@ So a grid of 0 0 0 0 0 must become:  0 1 1 1 0
              0 0 5 0 0               0 1 5 1 0
              0 0 0 0 0               0 1 1 1 0
 
-[pic1] https://github.com/EoghanOGallchoir/ARC
+[pic1] https://github.com/EoghanOGallchoir/ARC/Images/blue-purple.PNG
 
 #### How my function works
 
