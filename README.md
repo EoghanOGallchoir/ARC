@@ -35,8 +35,8 @@ Test grids: 1/1
 
 We take the grid **x**, and rotate it 90 degrees left to get **x1**.
 We then take **x1** and rotate it 90 degrees to get **x2**, and the same with **x2** to get **x3**.
-Finally we combine all 4 grids together in the form: x  x1
-						     x3 x2
+
+![alt text](Images/rotate.PNG "example 3")
 						     
 #### Testing
 
