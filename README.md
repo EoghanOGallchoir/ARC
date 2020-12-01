@@ -11,12 +11,7 @@
 
 The first task consists of a grid containing a few blue (5) squares.
 The function must surround those squares with purple (1) squares.
-![pic1]
-So a grid of 0 0 0 0 0 must become:  0 1 1 1 0
-             0 0 5 0 0               0 1 5 1 0
-             0 0 0 0 0               0 1 1 1 0
-
-[pic1] https://github.com/EoghanOGallchoir/ARC/Images/blue-purple.PNG
+(https://github.com/EoghanOGallchoir/ARC/Images/blue-purple.PNG)
 
 #### How my function works
 
