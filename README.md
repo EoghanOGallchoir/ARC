@@ -30,7 +30,7 @@ Test grids: 1/1
 #### Description
 
 This task takes the entire grid as an input and rotates it around 3 times, completing a box shape. 
-![alt text] (Images/swap.PNG "example 2")
+![alt text](Images/swap.PNG "example 2")
 #### How my function works
 
 We take the grid **x**, and rotate it 90 degrees left to get **x1**.
