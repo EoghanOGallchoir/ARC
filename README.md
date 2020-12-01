@@ -11,9 +11,12 @@
 
 The first task consists of a grid containing a few blue (5) squares.
 The function must surround those squares with purple (1) squares.
+![pic1]
 So a grid of 0 0 0 0 0 must become:  0 1 1 1 0
              0 0 5 0 0               0 1 5 1 0
              0 0 0 0 0               0 1 1 1 0
+
+[pic1] https://github.com/EoghanOGallchoir/ARC
 
 #### How my function works
 
@@ -24,6 +27,7 @@ Once a blue square is found, the function puts a purple, aka 1, in the surroundi
 #### Testing
 
 Training grids: 2/2
+
 Test grids: 1/1
                   
 ### 2.
@@ -39,12 +43,13 @@ This is a bit hard to describe but imaginee a 2x2 grid:0 1 becomes a 4x4 grid of
 
 We take the grid **x**, and rotate it 90 degrees left to get **x1**.
 We then take **x1** and rotate it 90 degrees to get **x2**, and the same with **x2** to get **x3**.
-Finally we combine all 4 grids together in the form:```python x  x1
-						     	      x3 x2
-						     ```
+Finally we combine all 4 grids together in the form: x  x1
+						     x3 x2
+						     
 #### Testing
 
 Training grids: 3/3
+
 Test grids: 1/1
 
 ### 3.
@@ -64,6 +69,7 @@ When we hit the wall, we inverse its direction and begin to paint again, until i
 #### Testing
 
 Training grids: 2/3
+
 Test grids: 1/1
 
 
