@@ -11,6 +11,7 @@
 
 The first task consists of a grid containing a few blue (5) squares.
 The function must surround those squares with purple (1) squares.
+
 ![alt text](Images/blue-purple.PNG "example 1")
 
 #### How my function works
@@ -29,7 +30,6 @@ Test grids: 1/1
 
 #### Description
 
-This task takes the entire grid as an input and rotates it around 3 times, completing a box shape. 
 ![alt text](Images/swap.PNG "example 2")
 #### How my function works
 
