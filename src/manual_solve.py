@@ -5,6 +5,9 @@ import json
 import numpy as np
 import re
 
+### Name: Eoghan Ó Gallchóir
+### ID:   16339936
+
 ### github link:
 ### https://github.com/EoghanOGallchoir/ARC
 
