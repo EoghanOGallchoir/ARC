@@ -28,7 +28,7 @@ Test grids: 1/1
                   
 ### 2.
 
-####Description
+#### Description
 
 This task takes the entire grid as an input and rotates it around 3 times, completing a box shape. 
 This is a bit hard to describe but imaginee a 2x2 grid:0 1 becomes a 4x4 grid of: 0 1 2 0
@@ -48,7 +48,7 @@ Test grids: 1/1
 
 ### 3.
 
-####Description
+#### Description
 
 This task takes the direction started by the blue squares (always diagonal) and continues it with green squares until it hits a red wall.
 Upon meeting the wall, the green line must then *"bounce"* off that wall and continue its trajectory until it hits the edge of the grid.
@@ -75,7 +75,7 @@ The second function utilised more basic python function, `reversed()` and `zip()
 the way I wanted them to join. It was a very useful function for doing what I needed it to. The third function is similar to the first where there is basic python used to complete
 the task at hand. Loops are heavily featured here, a commonality with the other two functions to go through the every square in the grid.
 
-One differance that the third function has in comparison with the first two is that it uses other functions to solve its problem. These functions `paint_to()` and `paint_fro` were
+One difference that the third function has in comparison with the first two is that it uses other functions to solve its problem. These functions `paint_to()` and `paint_fro` were
 implemented to try and make the code look a little more elegant, on top of it making sense at the time. They take multiple arguments and again use nested (upon nested) loops to 
 execute what I want them to do.
 
