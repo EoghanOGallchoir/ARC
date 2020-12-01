@@ -37,10 +37,11 @@ This is a bit hard to describe but imaginee a 2x2 grid:0 1 becomes a 4x4 grid of
                                                  				  0 2 1 0
 #### How my function works
 
-We take the grid x, and rotate it 90 degrees left to get x1.
-We then take x1 and rotate it 90 degrees to get x2, and the same with x2 to get x3.
-Finally we combine all 4 grids together in the form: x  x1
-						     x3 x2
+We take the grid **x**, and rotate it 90 degrees left to get **x1**.
+We then take **x1** and rotate it 90 degrees to get **x2**, and the same with **x2** to get **x3**.
+Finally we combine all 4 grids together in the form:```python x  x1
+						     	      x3 x2
+						     ```
 #### Testing
 
 Training grids: 3/3
@@ -57,7 +58,7 @@ Upon meeting the wall, the green line must then *"bounce"* off that wall and con
 
 My function starts by finding blue squares along the edge squares of the grid.
 Once it finds one it looks for its blue neighbour, and from that it gets one of 4 directions it can go in (NW, SW, SE, NE).
-A helper funcion is then called to "paint" green squares from the blue squares to the red wall, stopping once it gets there.
+A helper funcion is then called to paint green squares from the blue squares to the red wall, stopping once it gets there.
 When we hit the wall, we inverse its direction and begin to paint again, until it hits any of the edges of the grid.
 
 #### Testing
